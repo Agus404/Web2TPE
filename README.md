@@ -1,4 +1,4 @@
-# Trabajo Práctica Especial. Web 2
+# Trabajo Práctico Especial. Web 2
 
 ## Integrantes:
 
