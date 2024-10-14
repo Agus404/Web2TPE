@@ -15,10 +15,6 @@ $params = explode('/', $action);
 
 switch ($params[0]) {
     case 'productos':
-        $controller = new ProductosController;
-        $controller->showProductos();
-        break;
-    case 'producto':
         $controller =  new ProductosController;
         if (empty($params[1])) {
             $controller->showProductos();
