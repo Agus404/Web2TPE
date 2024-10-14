@@ -1,0 +1,9 @@
+<?php require 'templates/layout/header.phtml' ?>
+
+<ul class="">
+    <?php foreach($marcas as $marca): ?>
+        <li class=""><?=$marca->nombre_marca?></li>
+    <?php endforeach ?>
+</ul>
+
+<?php require 'templates/layout/footer.phtml' ?>
