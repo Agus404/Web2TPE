@@ -4,7 +4,7 @@ require_once "app/controllers/productos.controller.php";
 require_once "app/controllers/marcas.controller.php";
 
 
-define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
+define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
 $action = 'productos';
 if (!empty($_GET['action'])) {
@@ -22,14 +22,19 @@ switch ($params[0]) {
         $controller =  new ProductosController;
         if (empty($params[1])) {
             $controller->showProductos();
-        }else{
+        } else {
             $id = $params[1];
             $controller->showProductoById($id);
         }
         break;
     case 'marcas':
         $controller = new MarcasController;
-        $controller->showMarcas();
+        if (empty($params[1])) {
+            $controller->showMarcas();
+        } else {
+            $marca = $params[1];
+            $controller->showProductosByMarca($marca);
+        }
         break;
     default:
         break;
