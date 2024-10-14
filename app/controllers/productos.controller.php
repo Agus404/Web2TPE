@@ -2,16 +2,19 @@
 
 require_once "app/models/productos.model.php";
 require_once "app/views/productos.view.php";
+require_once "app/views/layout.view.php";
 
 class ProductosController{
 
-    private $view;
     private $model;
+    private $view;
+    private $layoutView;
 
     function __construct()
     {
-        $this->view = new ProductosView;
         $this->model = new ProductosModel;
+        $this->view = new ProductosView;
+        $this->layoutView = new LayoutView;
     }
 
     function showProductos(){
@@ -24,7 +27,7 @@ class ProductosController{
         if(!empty($producto)){
             $this->view->showProducto($producto);
         }else{
-            $this->view->showError('Producto no encontrado');
+            $this->layoutView->showError('Producto no encontrado');
         }
     }
 }

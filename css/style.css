@@ -102,7 +102,7 @@ main{
     /* background-color: crimson; */
     /* display: flex; */
     
-    height: 90vh;
+    min-height: 90vh;
     /* width: 80%; */
 }
 
