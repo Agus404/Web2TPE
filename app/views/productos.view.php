@@ -9,6 +9,7 @@ class ProductosView{
     function showProducto($producto){
         // echo "$producto->nombre_producto";
         var_dump($producto);
+        require 'templates/detalle_producto.phtml';
     }
 
     function showError($msg) {
