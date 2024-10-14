@@ -1,0 +1,117 @@
+:root{
+    --background-color: #fefcfb;
+    --text-color: #0A0A0A;
+    --primary-color: #023E8A;
+    --secondary-color: #1B1464;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Montserrat", sans-serif;
+}
+
+a{
+    color: var(--text-color);
+}
+
+body{
+    background-color: var(--background-color);
+    color: var(--text-color);
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    min-height: 100vh;
+}
+
+header{
+    display: flex;
+    padding: 0px 32px;
+    height: 6vh;
+    /* width: 100%; */
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-bottom: 0.3vh var(--text-color) solid;
+}
+
+.title{
+    text-transform: capitalize;
+    font-family: "Great Vibes", cursive;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    height: 100%;
+}
+
+.nav li{
+    padding: 0px 16px;
+    /* margin: 0px 16px; */
+}
+
+.nav-elem{
+    /* font-size: 20px; */
+    font-weight: 800;
+    height: 100%;
+    /* background-color: crimson; */
+}
+
+.nav-elem a{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+
+.btn-login{
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    /* text-transform: uppercase; */
+    font-weight: 700;
+    /* border: none; */
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    /* font-size: 20px; */
+    /* font-weight: 900; */
+}
+
+.nav-elem:hover{
+    /* text-decoration: underline 2px; */
+    background-color: #29ABE2;
+}
+
+.btn-login:hover{
+    /* background-color: #29ABE2;
+    color: var(--text-color); */
+
+    background-color: var(--secondary-color);
+}
+
+main{
+    /* background-color: crimson; */
+    /* display: flex; */
+    
+    height: 90vh;
+    /* width: 80%; */
+}
+
+footer{
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    height: 3.8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}

@@ -14,6 +14,7 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 switch ($params[0]) {
+
     case 'productos':
         $controller =  new ProductosController;
         if (empty($params[1])) {
@@ -23,6 +24,7 @@ switch ($params[0]) {
             $controller->showProductoById($id);
         }
         break;
+    
     case 'marcas':
         $controller = new MarcasController;
         if (empty($params[1])) {
@@ -32,6 +34,7 @@ switch ($params[0]) {
             $controller->showProductosByMarca($marca);
         }
         break;
+
     default:
         break;
 }
