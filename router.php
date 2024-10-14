@@ -26,6 +26,7 @@ switch ($params[0]) {
             $id = $params[1];
             $controller->showProductoById($id);
         }
+        break;
     case 'marcas':
         $controller = new MarcasController;
         $controller->showMarcas();

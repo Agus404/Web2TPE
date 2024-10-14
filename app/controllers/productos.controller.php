@@ -21,6 +21,10 @@ class ProductosController{
 
     function showProductoById($id){
         $producto = $this->model->getProductoById($id);
-        $this->view->showProducto($producto);
+        if(!empty($producto)){
+            $this->view->showProducto($producto);
+        }else{
+            $this->view->showError('Producto no encontrado');
+        }
     }
 }

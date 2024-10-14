@@ -7,6 +7,12 @@ class ProductosView{
     }
 
     function showProducto($producto){
-        echo $producto->nombre_producto;
+        // echo "$producto->nombre_producto";
+        var_dump($producto);
+    }
+
+    function showError($msg) {
+        echo "<h1> ERROR </h1>";
+        echo "<h2>$msg</h2";
     }
 }
