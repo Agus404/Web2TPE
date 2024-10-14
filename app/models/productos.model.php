@@ -10,7 +10,7 @@ class ProductosModel{
     }
 
     function getAllProductos(){
-        $query = $this->db->prepare("SELECT * WHERE productos");
+        $query = $this->db->prepare('SELECT * FROM productos');
         $query->execute();
         $productos = $query->fetchAll(PDO::FETCH_OBJ);
         return $productos;
