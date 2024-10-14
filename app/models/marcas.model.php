@@ -14,4 +14,11 @@ class MarcasModel{
         $marcas = $query->fetchAll(PDO::FETCH_OBJ);
         return $marcas;
     }
+
+    function getProductosByMarca($marca) {
+        $query = $this->db->prepare('SELECT * FROM productos WHERE id_marca = ?');
+        $query->execute([$marca]);
+        $productos = $query->fetchAll(PDO::FETCH_OBJ);
+        return $productos;
+    }
 }
