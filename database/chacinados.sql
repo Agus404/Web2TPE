@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-09-2024 a las 00:51:00
+-- Tiempo de generación: 14-10-2024 a las 20:41:39
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -54,7 +54,6 @@ CREATE TABLE `productos` (
   `nombre_producto` varchar(50) NOT NULL,
   `peso` int(11) NOT NULL,
   `precio` decimal(10,2) NOT NULL,
-  `categoria` varchar(50) NOT NULL,
   `id_marca` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -62,11 +61,11 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `nombre_producto`, `peso`, `precio`, `categoria`, `id_marca`) VALUES
-(5, 'Bondiola ahumada', 200, 7000.00, 'Bondiola', 2),
-(6, 'Salamin picado grueso', 150, 4660.00, 'Salamin', 1),
-(7, 'Jamon cocido horneado', 400, 99999.99, 'Jamon', 5),
-(8, 'Longaniza calabresa', 200, 4500.00, 'Salamin', 2);
+INSERT INTO `productos` (`id_producto`, `nombre_producto`, `peso`, `precio`, `id_marca`) VALUES
+(5, 'Bondiola ahumada', 200, 7000.00, 2),
+(6, 'Salamin picado grueso', 150, 4660.00, 1),
+(7, 'Jamon cocido horneado', 400, 99999.99, 5),
+(8, 'Longaniza calabresa', 200, 4500.00, 2);
 
 --
 -- Índices para tablas volcadas
