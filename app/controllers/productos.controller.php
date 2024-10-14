@@ -18,4 +18,9 @@ class ProductosController{
         $productos = $this->model->getAllProductos();
         $this->view->showProductos($productos);
     }
+
+    function showProductoById($id){
+        $producto = $this->model->getProductoById($id);
+        $this->view->showProducto($producto);
+    }
 }
