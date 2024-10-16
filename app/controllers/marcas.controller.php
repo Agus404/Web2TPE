@@ -2,16 +2,20 @@
 
 require_once "app/models/marcas.model.php";
 require_once "app/views/marcas.view.php";
+require_once "app/views/layout.view.php";
+
 
 class MarcasController{
 
     private $view;
     private $model;
+    private $layoutView;
 
     function __construct()
     {
         $this->view = new MarcasView;
         $this->model = new MarcasModel;
+        $this->layoutView = new LayoutView;
     }
 
     function showMarcas(){
@@ -24,7 +28,7 @@ class MarcasController{
         if(!empty($productos)){
             $this->view->showProductosByMarca($productos);
         }else{
-            $this->view->showError('Producto no encontrado');
+            $this->layoutView->showError('Producto no encontrado');
         }       
     }
 }
