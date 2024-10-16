@@ -54,4 +54,8 @@ class MarcasController{
         $this->model->deleteMarca($id);
         header('Location: ' . BASE_URL . 'marcas');
     }
+
+    //function showError($msg){
+    //    $this->layoutView->showError($msg);
+    //}
 }

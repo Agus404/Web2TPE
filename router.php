@@ -13,6 +13,8 @@ if (!empty($_GET['action'])) {
 }
 
 $params = explode('/', $action);
+$controllerMarcas = new MarcasController;
+
 
 switch ($params[0]) {
 
@@ -27,28 +29,25 @@ switch ($params[0]) {
         break;
     
     case 'marcas':
-        $controller = new MarcasController;
         if (empty($params[1])) {
-            $controller->showMarcas();
+            $controllerMarcas->showMarcas();
         } else {
             $marca = $params[1];
-            $controller->showProductosByMarca($marca);
+            $controllerMarcas->showProductosByMarca($marca);
         }
         break;
 
     case 'agregar-marca':
-        $controller = new MarcasController;
-        $controller->addMarca();
+        $controllerMarcas->addMarca();
         break;
     
     case 'eliminar-marca':
-        $controller = new MarcasController;
         $view = new LayoutView;
         if (empty($params[1])) {
             $view->showError('Error al eliminar marca');
         } else {
             $id = $params[1];
-            $controller->removeMarca($id);
+            $controllerMarcas->removeMarca($id);
         }
         break;
 
