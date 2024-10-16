@@ -1,8 +1,9 @@
 <?php require 'templates/layout/header.phtml' ?>
+<?php require 'templates/form_insertar_marca.phtml' ?>
 
 <ul class="">
     <?php foreach($marcas as $marca): ?>
-        <li class=""><?=$marca->nombre_marca?></li>
+        <li class=""><?=$marca->nombre_marca?><a href="eliminar-marca/<?=$marca->id_marca?>" class="btn-eliminar"> X</a></li>
     <?php endforeach ?>
 </ul>
 
