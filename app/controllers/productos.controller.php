@@ -75,7 +75,6 @@ class ProductosController{
 
         if (empty($nombre_producto) || empty($peso) || empty($precio) || empty($id_marca)) {
             $this->layoutView->showError("Debe completar todos los campos");
-            return;
         }else{
             $this->model->updateProducto($nombre_producto, $peso, $precio, $id_marca, $id_producto);
             header('Location: ' . BASE_URL . 'productos');

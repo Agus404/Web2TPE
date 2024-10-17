@@ -60,6 +60,24 @@ class MarcasController{
         }
     }
 
+    function showFormEditar($id){
+        $marca = $this->model->getMarcaById($id);
+        $this->view->showFormEditar($marca);
+    }
+
+    function updateMarca($id){
+        $nombre_marca = $_POST['nombre_marca'];
+        $contacto = $_POST['contacto'];
+        $sede = $_POST['sede'];
+
+        if (empty($nombre_marca) || empty($contacto) || empty($sede)) {
+            $this->layoutView->showError("Debe completar todos los campos");
+        }else{
+            $this->model->updateMarca($nombre_marca, $contacto, $sede, $id);
+            header('Location: ' . BASE_URL . 'marcas');
+        }
+    }
+
     function showError($msg){
         $this->layoutView->showError($msg);
     }

@@ -36,6 +36,11 @@ class MarcasModel{
         return $this->db->lastInsertId();
     }
 
+    function updateMarca($nombre_marca, $contacto, $sede, $id) {
+        $query = $this->db->prepare('UPDATE marcas SET nombre_marca=?, contacto=?, sede=? WHERE id_marca = ?');
+        $query->execute([$nombre_marca, $contacto, $sede, $id]);
+    }
+
     function deleteMarca($id) {
         $query = $this->db->prepare('DELETE FROM marcas WHERE id_marca = ?');
         $query->execute([$id]);

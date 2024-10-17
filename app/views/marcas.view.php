@@ -13,4 +13,10 @@ class MarcasView{
         require 'templates/lista_productos.phtml';
         require 'templates/layout/footer.phtml';
     }
+
+    function showFormEditar($marca){
+        require 'templates/layout/header.phtml';
+        require 'templates/form_editar_marca.phtml';
+        require 'templates/layout/footer.phtml';
+    }
 }

@@ -25,7 +25,7 @@ switch ($params[0]) {
             $controllerProductos->showProductoById($id);
         }
         break;
-    
+
     case 'marcas':
         if (empty($params[1])) {
             $controllerMarcas->showMarcas();
@@ -51,10 +51,10 @@ switch ($params[0]) {
     case 'editar-producto':
         if (empty($params[1])) {
             $controllerProductos->showError('Producto no encontrado');
-        } else if(empty($params[2])) {
+        } else if (empty($params[2])) {
             $id = $params[1];
             $controllerProductos->showFormEditar($id);
-        }else{
+        } else {
             $id = $params[1];
             $controllerProductos->updateProducto($id);
         }
@@ -63,13 +63,25 @@ switch ($params[0]) {
     case 'agregar-marca':
         $controllerMarcas->addMarca();
         break;
-    
+
     case 'eliminar-marca':
         if (empty($params[1])) {
             $controllerMarcas->showError('Error al eliminar marca');
         } else {
             $id = $params[1];
             $controllerMarcas->removeMarca($id);
+        }
+        break;
+
+    case 'editar-marca':
+        if (empty($params[1])) {
+            $controllerMarcas->showError('Marca no encontrada');
+        } else if (empty($params[2])) {
+            $id = $params[1];
+            $controllerMarcas->showFormEditar($id);
+        } else {
+            $id = $params[1];
+            $controllerMarcas->updateMarca($id);
         }
         break;
 
