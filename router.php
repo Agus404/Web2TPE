@@ -2,8 +2,6 @@
 
 require_once "app/controllers/productos.controller.php";
 require_once "app/controllers/marcas.controller.php";
-require_once "app/views/layout.view.php";
-
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -55,9 +53,8 @@ switch ($params[0]) {
         break;
     
     case 'eliminar-marca':
-        $view = new LayoutView;
         if (empty($params[1])) {
-            $view->showError('Error al eliminar marca');
+            $controllerMarcas->showError('Error al eliminar marca');
         } else {
             $id = $params[1];
             $controllerMarcas->removeMarca($id);

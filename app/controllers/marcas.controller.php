@@ -55,7 +55,7 @@ class MarcasController{
         header('Location: ' . BASE_URL . 'marcas');
     }
 
-    //function showError($msg){
-    //    $this->layoutView->showError($msg);
-    //}
+    function showError($msg){
+        $this->layoutView->showError($msg);
+    }
 }
