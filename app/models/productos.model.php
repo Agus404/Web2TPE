@@ -36,6 +36,11 @@ class ProductosModel{
         return $this->db->lastInsertId();
     }
 
+    function updateProducto($nombre_producto, $peso, $precio, $id_marca, $id_producto){
+        $query = $this->db->prepare('UPDATE productos SET nombre_producto=?, peso=?, precio=?, id_marca=? WHERE id_producto = ?');
+        $query->execute([$nombre_producto, $peso, $precio, $id_marca, $id_producto]);
+    }
+
     function deleteProducto($id) {
         $query = $this->db->prepare('DELETE FROM productos WHERE id_producto = ?');
         $query->execute([$id]);

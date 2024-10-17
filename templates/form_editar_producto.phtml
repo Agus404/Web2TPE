@@ -1,0 +1,11 @@
+<form action="editar-producto/<?=$producto->id_producto?>/update" method="post">
+    <input type="text" name="nombre_producto" value="<?=$producto->nombre_producto?>" required>
+    <input type="number" name="peso" value="<?=$producto->peso?>" required>
+    <input type="number" name="precio" value="<?=$producto->precio?>" required>
+    <select name="id_marca" id="">
+        <?php foreach($marcas as $marca): ?>
+            <option value="<?=$marca->id_marca?>" <?php if($marca->id_marca == $producto->id_marca){echo 'selected';}?>><?=$marca->nombre_marca?></option>
+        <?php endforeach ?>
+    </select>
+    <button type="submit">Enviar</button>
+</form>

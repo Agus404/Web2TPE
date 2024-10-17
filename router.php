@@ -48,6 +48,18 @@ switch ($params[0]) {
         }
         break;
 
+    case 'editar-producto':
+        if (empty($params[1])) {
+            $controllerProductos->showError('Producto no encontrado');
+        } else if(empty($params[2])) {
+            $id = $params[1];
+            $controllerProductos->showFormEditar($id);
+        }else{
+            $id = $params[1];
+            $controllerProductos->updateProducto($id);
+        }
+        break;
+
     case 'agregar-marca':
         $controllerMarcas->addMarca();
         break;

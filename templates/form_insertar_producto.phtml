@@ -1,7 +1,7 @@
 <form action="agregar-producto" method="POST">
-    <input type="text" name="nombre_producto" placeholder="Nombre de Producto">
-    <input type="number" name="peso" placeholder="Peso en gramos">
-    <input type="text" name="precio" placeholder="Precio">
+    <input type="text" name="nombre_producto" placeholder="Nombre de Producto" required>
+    <input type="number" name="peso" placeholder="Peso en gramos" required>
+    <input type="number" name="precio" placeholder="Precio" required>
     <select name="id_marca">
         <?php foreach($marcas as $marca): ?>
             <option value="<?=$marca->id_marca?>"><?=$marca->nombre_marca?></option>

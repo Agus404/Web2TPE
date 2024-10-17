@@ -12,4 +12,10 @@ class ProductosView{
     function showProducto($producto){
         require 'templates/detalle_producto.phtml';
     }
+
+    function showFormEditar($producto,$marcas){
+        require 'templates/layout/header.phtml';
+        require 'templates/form_editar_producto.phtml';
+        require 'templates/layout/footer.phtml';
+    }
 }

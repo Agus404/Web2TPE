@@ -61,6 +61,27 @@ class ProductosController{
         }
     }
 
+    function showFormEditar($id){
+        $producto = $this->model->getProductoById($id);
+        $marcas = $this->model->getAllMarcas();
+        $this->view->showFormEditar($producto,$marcas);
+    }
+
+    function updateProducto($id_producto){
+        $nombre_producto = $_POST['nombre_producto'];
+        $peso = $_POST['peso'];
+        $precio = $_POST['precio'];
+        $id_marca = $_POST['id_marca'];
+
+        if (empty($nombre_producto) || empty($peso) || empty($precio) || empty($id_marca)) {
+            $this->layoutView->showError("Debe completar todos los campos");
+            return;
+        }else{
+            $this->model->updateProducto($nombre_producto, $peso, $precio, $id_marca, $id_producto);
+            header('Location: ' . BASE_URL . 'productos');
+        }
+    }
+
     function showError($msg){
        $this->layoutView->showError($msg);
     }

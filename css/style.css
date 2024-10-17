@@ -129,3 +129,13 @@ footer{
     font-weight: 900;
     color: #ff7777;
 }
+
+.btn-editar{
+    font-weight: 800;
+    color: #00AA00;
+}
+
+.btn-editar:hover{
+    font-weight: 900;
+    color: #99FF99;
+}
