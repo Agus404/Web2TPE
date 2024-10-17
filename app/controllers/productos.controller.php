@@ -52,8 +52,13 @@ class ProductosController{
     }
 
     function removeProducto($id){
-        $this->model->deleteProducto($id);
-        header('Location: ' . BASE_URL . 'productos');
+        $producto = $this->model->getProductoById($id);
+        if (empty($producto)){
+            $this->layoutView->showError('Producto no encontrado.');
+        }else{
+            $this->model->deleteProducto($id);
+            header('Location: ' . BASE_URL . 'productos');
+        }
     }
 
     function showError($msg){
