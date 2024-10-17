@@ -19,7 +19,8 @@ class ProductosController{
 
     function showProductos(){
         $productos = $this->model->getAllProductos();
-        $this->view->showProductos($productos);
+        $marcas = $this->model->getAllMarcas();
+        $this->view->showProductos($productos,$marcas);
     }
 
     function showProductoById($id){
@@ -29,5 +30,33 @@ class ProductosController{
         }else{
             $this->layoutView->showError('Producto no encontrado');
         }
+    }
+
+    function addProducto(){
+        $nombre_producto = $_POST['nombre_producto'];
+        $peso = $_POST['peso'];
+        $precio = $_POST['precio'];
+        $id_marca = $_POST['id_marca'];
+
+        if (empty($nombre_producto) || empty($peso) || empty($precio) || empty($id_marca)) {
+            $this->layoutView->showError("Debe completar todos los campos");
+            return;
+        }
+
+        $id = $this->model->insertProducto($nombre_producto, $peso, $precio, $id_marca);
+        if ($id) {
+            header('Location: ' . BASE_URL . 'productos');
+        } else {
+            $this->layoutView->showError("Error al insertar el producto");
+        }
+    }
+
+    function removeProducto($id){
+        $this->model->deleteProducto($id);
+        header('Location: ' . BASE_URL . 'productos');
+    }
+
+    function showError($msg){
+       $this->layoutView->showError($msg);
     }
 }

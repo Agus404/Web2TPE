@@ -14,17 +14,17 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 $controllerMarcas = new MarcasController;
+$controllerProductos = new ProductosController;
 
 
 switch ($params[0]) {
 
     case 'productos':
-        $controller =  new ProductosController;
         if (empty($params[1])) {
-            $controller->showProductos();
+            $controllerProductos->showProductos();
         } else {
             $id = $params[1];
-            $controller->showProductoById($id);
+            $controllerProductos->showProductoById($id);
         }
         break;
     
@@ -34,6 +34,19 @@ switch ($params[0]) {
         } else {
             $marca = $params[1];
             $controllerMarcas->showProductosByMarca($marca);
+        }
+        break;
+
+    case 'agregar-producto':
+        $controllerProductos->addProducto();
+        break;
+
+    case 'eliminar-producto':
+        if (empty($params[1])) {
+            $controllerProductos->showError('Error al eliminar producto');
+        } else {
+            $id = $params[1];
+            $controllerProductos->removeProducto($id);
         }
         break;
 
@@ -52,7 +65,6 @@ switch ($params[0]) {
         break;
 
     default:
-        $view = new LayoutView;
-        $view->showError("Página no encontrada");
+        $controllerProductos->showError("Página no encontrada");
         break;
 }

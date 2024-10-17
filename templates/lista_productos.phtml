@@ -1,9 +1,5 @@
-<?php require 'templates/layout/header.phtml' ?>
-
 <ul class="">
     <?php foreach($productos as $producto): ?>
-        <li class=""><?=$producto->nombre_producto?> <span class="precio">$<?=$producto->precio?></span></li>
+        <li class=""><?=$producto->nombre_producto?> <span class="precio">$<?=$producto->precio?></span><a href="eliminar-producto/<?=$producto->id_producto?>" class="btn-eliminar"> X </a></li>
     <?php endforeach ?>
 </ul>
-
-<?php require 'templates/layout/footer.phtml' ?>
