@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2024 a las 20:41:39
+-- Tiempo de generación: 17-10-2024 a las 23:58:28
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -41,7 +41,9 @@ CREATE TABLE `marcas` (
 INSERT INTO `marcas` (`id_marca`, `nombre_marca`, `contacto`, `sede`) VALUES
 (1, 'Cagnoli', 'info@cagnoli.com', 'Sección Chacras 43, Tandil, Argentina.'),
 (2, 'Las Dinas', 'dinas.salumeria@hotmail.com', 'Parque Industrial, Tandil, Argentina.'),
-(5, 'Paladini', 'info@paladini.com', 'Carlos Tejedor 2040, Cordoba, Argentina');
+(5, 'Paladini', 'info@paladini.com', 'Carlos Tejedor 2040, Cordoba, Argentina'),
+(6, 'Lario', '(54) 3492 438800', 'Paraná 899, Rafaela, Santa Fe.'),
+(7, 'Temp', '123', 'qwe');
 
 -- --------------------------------------------------------
 
@@ -53,7 +55,7 @@ CREATE TABLE `productos` (
   `id_producto` int(11) NOT NULL,
   `nombre_producto` varchar(50) NOT NULL,
   `peso` int(11) NOT NULL,
-  `precio` decimal(10,2) NOT NULL,
+  `precio` int(11) NOT NULL,
   `id_marca` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -62,10 +64,12 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `nombre_producto`, `peso`, `precio`, `id_marca`) VALUES
-(5, 'Bondiola ahumada', 200, 7000.00, 2),
-(6, 'Salamin picado grueso', 150, 4660.00, 1),
-(7, 'Jamon cocido horneado', 400, 99999.99, 5),
-(8, 'Longaniza calabresa', 200, 4500.00, 2);
+(6, 'Salamin picado grueso', 150, 4660, 1),
+(7, 'Jamon cocido horneado', 400, 9999999, 5),
+(8, 'Longaniza calabresa', 200, 4500, 2),
+(14, 'Bondiola ahumada', 200, 7000, 2),
+(15, 'Mortadela Bologna', 500, 7123, 6),
+(16, 'Salamin picado fino', 200, 6000, 7);
 
 --
 -- Índices para tablas volcadas
@@ -93,13 +97,13 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Restricciones para tablas volcadas
@@ -109,7 +113,7 @@ ALTER TABLE `productos`
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_marca`) REFERENCES `marcas` (`id_marca`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_marca`) REFERENCES `marcas` (`id_marca`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
