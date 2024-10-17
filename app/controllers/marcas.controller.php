@@ -51,8 +51,13 @@ class MarcasController{
     }
 
     function removeMarca($id){
-        $this->model->deleteMarca($id);
-        header('Location: ' . BASE_URL . 'marcas');
+        $marca = $this->model->getMarcaById($id);
+        if (empty($marca)){
+            $this->layoutView->showError('Marca no encontrada.');
+        }else{
+            $this->model->deleteMarca($id);
+            header('Location: ' . BASE_URL . 'marcas');
+        }
     }
 
     function showError($msg){

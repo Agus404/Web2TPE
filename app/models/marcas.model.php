@@ -22,6 +22,14 @@ class MarcasModel{
         return $productos;
     }
 
+    function getMarcaById($id) {
+        $query = $this->db->prepare('SELECT * FROM marcas WHERE id_marca = ?');
+        $query->execute([$id]);
+        $marca = $query->fetch(PDO::FETCH_OBJ);
+        return $marca;
+    }
+
+
     function insertMarca($nombre_marca, $contacto, $sede) {
         $query = $this->db->prepare('INSERT INTO marcas (nombre_marca, contacto, sede) VALUES(?,?,?)');
         $query->execute([$nombre_marca, $contacto, $sede]);
