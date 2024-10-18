@@ -2,7 +2,7 @@
     <h1>introducir producto: </h1>
     <form action="agregar-producto" method="POST">
         <input type="text" name="nombre_producto" placeholder="Nombre de Producto" required>
-        <input type="number" name="peso" placeholder="Peso en gramos" required>
+        <input type="number" name="peso" placeholder="Peso (en gramos)" required>
         <input type="number" name="precio" placeholder="Precio" required>
         <select name="id_marca">
             <?php foreach ($marcas as $marca): ?>
