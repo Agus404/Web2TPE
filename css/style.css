@@ -246,6 +246,10 @@ footer{
     padding: 8px 10vw;
 }
 
+.form-insertar h1{
+    font-size: 28px;
+}
+
 .form-insertar form{
     display: flex;
     gap: 8px;
@@ -256,6 +260,10 @@ footer{
     padding: 0px 8px;
     border: none;
     border-radius: 4px;
+}
+
+.form-insertar input[type="number"]{
+    width: 130px;
 }
 
 .form-insertar select{
