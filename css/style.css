@@ -65,6 +65,11 @@ header{
     /* background-color: crimson; */
 }
 
+.nav-elem:hover{
+    /* text-decoration: underline 2px; */
+    background-color: #29ABE2;
+}
+
 .nav-elem a{
     display: flex;
     align-items: center;
@@ -74,7 +79,7 @@ header{
 }
 
 .btn-login{
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: var(--background-color);
     /* text-transform: uppercase; */
     font-weight: 700;
@@ -86,16 +91,11 @@ header{
     /* font-weight: 900; */
 }
 
-.nav-elem:hover{
-    /* text-decoration: underline 2px; */
-    background-color: #29ABE2;
-}
-
 .btn-login:hover{
     /* background-color: #29ABE2;
     color: var(--text-color); */
 
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
 }
 
 main{
@@ -162,11 +162,12 @@ footer{
     display: flex;
     justify-content: space-between;
     margin: 16px;
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     width: 80vw;
     height: 100px;
     border-radius: 8px;
     overflow: hidden;
+    box-shadow: #777 2px 4px 5px;
     /* padding: 8px; */
     /* width: 100%;
     height: 100%; */
@@ -174,7 +175,7 @@ footer{
 }
 
 .item-card:hover{
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
 .item-elem{
@@ -209,7 +210,8 @@ footer{
     display: flex;
     align-items: center;
     font-weight: 800;
-    font-size: 20px;
+    font-size: 22px;
+    /* color: orange; */
     /* padding: 0px -16px; */
     /* background-color: cyan; */
 }
@@ -224,13 +226,57 @@ footer{
     /* background-color: crimson; */
 }
 
-.tituloMarca{
+.titulo-marca{
     display: flex;
     justify-content: center;
     font-weight: 900;
 }
 
-.infoMarca{
+.info-marca{
     display: flex;
     flex-direction: column;
+}
+
+.form-insertar{
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 8px 10vw;
+}
+
+.form-insertar form{
+    display: flex;
+    gap: 8px;
+}
+
+.form-insertar input{
+    width: 200px;
+    padding: 0px 8px;
+    border: none;
+    border-radius: 4px;
+}
+
+.form-insertar select{
+    border-radius: 4px;
+}
+
+.form-insertar button{
+    width: 100px;
+    background-color: var(--background-color);
+    background-color: darkorange;
+    /* color: var(--background-color); */
+    /* border: 2px solid var(--secondary-color); */
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.form-insertar button:hover{
+    background-color: orange;
+    /* color: var(--background-color); */
 }
