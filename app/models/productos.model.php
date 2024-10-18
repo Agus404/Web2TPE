@@ -15,6 +15,13 @@ class ProductosModel{
         $productos = $query->fetchAll(PDO::FETCH_OBJ);
         return $productos;
     }
+    
+        function getProductoById($id) {
+            $query = $this->db->prepare('SELECT * FROM productos WHERE id_producto = ?');
+            $query->execute([$id]);
+            $producto = $query->fetch(PDO::FETCH_OBJ);
+            return $producto;
+        }
 
     function getAllMarcas(){
         $query = $this->db->prepare('SELECT * FROM marcas');
@@ -23,11 +30,11 @@ class ProductosModel{
         return $marcas;
     }
 
-    function getProductoById($id) {
-        $query = $this->db->prepare('SELECT * FROM productos WHERE id_producto = ?');
+    function getMarcaById($id) {
+        $query = $this->db->prepare('SELECT * FROM marcas WHERE id_marca = ?');
         $query->execute([$id]);
-        $producto = $query->fetch(PDO::FETCH_OBJ);
-        return $producto;
+        $marca = $query->fetch(PDO::FETCH_OBJ);
+        return $marca;
     }
 
     function insertProducto($nombre_producto, $peso, $precio, $id_marca) {

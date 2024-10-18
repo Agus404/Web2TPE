@@ -9,7 +9,7 @@ class ProductosView{
         require 'templates/layout/footer.phtml';
     }
 
-    function showProducto($producto){
+    function showProducto($producto,$marca){
         require 'templates/detalle_producto.phtml';
     }
 

@@ -3,7 +3,7 @@
 
 <ul class="">
     <?php foreach($marcas as $marca): ?>
-        <li class=""><?=$marca->nombre_marca?> <a href="editar-marca/<?=$marca->id_marca?>" class="btn-editar"> O </a> <a href="eliminar-marca/<?=$marca->id_marca?>" class="btn-eliminar"> X </a></li>
+        <li class=""><a href="marcas/<?=$marca->id_marca?>"><?=$marca->nombre_marca?> <a href="editar-marca/<?=$marca->id_marca?>" class="btn-editar"> O </a> <a href="eliminar-marca/<?=$marca->id_marca?>" class="btn-eliminar"> X </a></a></li>
     <?php endforeach ?>
 </ul>
 

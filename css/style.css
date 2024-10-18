@@ -3,6 +3,7 @@
     --text-color: #0A0A0A;
     --primary-color: #023E8A;
     --secondary-color: #1B1464;
+    /* --text-color: crimson; */
 }
 
 *{
@@ -116,10 +117,6 @@ footer{
     font-size: 20px;
 }
 
-.lista-marcas{
-
-}
-
 .btn-eliminar{
     font-weight: 800;
     color: #FF0000;
@@ -138,4 +135,16 @@ footer{
 .btn-editar:hover{
     font-weight: 900;
     color: #99FF99;
+    /* color: crimson; */
+}
+
+.item-card{
+    padding: 8px;
+    background-color: #023E8A;
+    border: 2px solid blue;
+}
+
+.item-card{
+    background-color: var(--secondary-color);
+    color: var(--background-color);
 }
