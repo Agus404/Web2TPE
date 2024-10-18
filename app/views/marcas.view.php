@@ -6,11 +6,11 @@ class MarcasView{
         require 'templates/lista_marcas.phtml';
     }
 
-    function showProductosByMarca($productos){
+    function showProductosByMarca($productos, $marca){
         require 'templates/layout/header.phtml';
-        $id = $productos[0]->id_marca;
-        echo "<h1>$id</h1>";
+        require 'templates/mostrar_nombre_marca.phtml';
         require 'templates/lista_productos.phtml';
+        require 'templates/mostrar_datos_marca.phtml';
         require 'templates/layout/footer.phtml';
     }
 

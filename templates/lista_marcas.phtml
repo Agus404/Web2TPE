@@ -1,10 +1,15 @@
 <?php require 'templates/layout/header.phtml' ?>
 <?php require 'templates/form_insertar_marca.phtml' ?>
 
-<ul class="">
+<div class="items-container">
     <?php foreach($marcas as $marca): ?>
-        <li class=""><a href="marcas/<?=$marca->id_marca?>"><?=$marca->nombre_marca?> <a href="editar-marca/<?=$marca->id_marca?>" class="btn-editar"> O </a> <a href="eliminar-marca/<?=$marca->id_marca?>" class="btn-eliminar"> X </a></a></li>
+        <div class="item-card">
+            <a href="marcas/<?=$marca->id_marca?>" class="item-elem"> <?=$marca->nombre_marca?> </a>
+            <div class="item-mods">
+                <a href="editar-producto/<?=$marca->id_marca?>" class="btn-editar"> O </a>
+                <a href="eliminar-producto/<?=$marca->id_marca?>" class="btn-eliminar"> X </a>
+            </div>
     <?php endforeach ?>
-</ul>
+</div>
 
 <?php require 'templates/layout/footer.phtml' ?>
