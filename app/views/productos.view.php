@@ -9,7 +9,7 @@ class ProductosView{
         require 'templates/layout/footer.phtml';
     }
 
-    function showProducto($producto,$marca){
+    function showProducto($producto){
         require 'templates/detalle_producto.phtml';
     }
 
@@ -18,4 +18,8 @@ class ProductosView{
         require 'templates/form_editar_producto.phtml';
         require 'templates/layout/footer.phtml';
     }
+
+    // function getMarcaById($id){
+    //     return $this->controller->getMarcaById;
+    // }
 }

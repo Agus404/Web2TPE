@@ -1,33 +1,36 @@
 <?php
 
 require_once "app/models/productos.model.php";
+require_once "app/models/marcas.model.php";
 require_once "app/views/productos.view.php";
 require_once "app/views/layout.view.php";
 
 class ProductosController{
 
     private $model;
+    private $modelMarcas;
     private $view;
     private $layoutView;
 
     function __construct()
     {
         $this->model = new ProductosModel;
+        $this->modelMarcas = new MarcasModel;
         $this->view = new ProductosView;
         $this->layoutView = new LayoutView;
     }
 
     function showProductos(){
         $productos = $this->model->getAllProductos();
-        $marcas = $this->model->getAllMarcas();
+        $marcas = $this->modelMarcas->getAllMarcas();
         $this->view->showProductos($productos,$marcas);
     }
 
     function showProductoById($id){
         $producto = $this->model->getProductoById($id);
-        $marca = $this->model->getMarcaById($producto->id_marca);
+        // $marca = $this->model->getMarcaById($producto->id_marca);
         if(!empty($producto)){
-            $this->view->showProducto($producto,$marca);
+            $this->view->showProducto($producto);
         }else{
             $this->layoutView->showError('Producto no encontrado');
         }
@@ -64,7 +67,7 @@ class ProductosController{
 
     function showFormEditar($id){
         $producto = $this->model->getProductoById($id);
-        $marcas = $this->model->getAllMarcas();
+        $marcas = $this->modelMarcas->getAllMarcas();
         $this->view->showFormEditar($producto,$marcas);
     }
 

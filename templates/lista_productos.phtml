@@ -1,5 +1,5 @@
-<ul class="">
+<div class="items-container">
     <?php foreach($productos as $producto): ?>
-        <li class=""><a href="productos/<?=$producto->id_producto?>" class="item-card"><?=$producto->nombre_producto?><span class="precio">$<?=$producto->precio?></span><a href="editar-producto/<?=$producto->id_producto?>" class="btn-editar"> O </a><a href="eliminar-producto/<?=$producto->id_producto?>" class="btn-eliminar"> X </a></a></li>
+        <div class="item-card"><a href="productos/<?=$producto->id_producto?>" class="item-elem"><?=$producto->nombre_producto?> <?=$producto->nombre_marca?><span class="precio">$<?=$producto->precio?></span></a><div class="item-mods"><a href="editar-producto/<?=$producto->id_producto?>" class="btn-editar"> O </a><a href="eliminar-producto/<?=$producto->id_producto?>" class="btn-eliminar"> X </a></div></div>
     <?php endforeach ?>
-</ul>
+</div>

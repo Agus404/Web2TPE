@@ -16,7 +16,7 @@ class MarcasModel{
     }
 
     function getProductosByMarca($marca) {
-        $query = $this->db->prepare('SELECT * FROM productos WHERE id_marca = ?');
+        $query = $this->db->prepare('SELECT id_producto, nombre_producto, peso, precio, productos.id_marca, marcas.nombre_marca as nombre_marca FROM productos, marcas WHERE productos.id_marca = ? AND productos.id_marca=marcas.id_marca');
         $query->execute([$marca]);
         $productos = $query->fetchAll(PDO::FETCH_OBJ);
         return $productos;
