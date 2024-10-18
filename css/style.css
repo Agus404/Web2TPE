@@ -117,9 +117,15 @@ footer{
 }
 
 .btn-eliminar{
-    background-color: inherit;
-    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 28px;
+    width: 100%;
+    height: 100%;
     color: #FF0000;
+    /* background-color: #; */
 }
 
 .btn-eliminar:hover{
@@ -128,9 +134,15 @@ footer{
 }
 
 .btn-editar{
-    background-color: rgba(0, 0, 0, 0);
-    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 28px;
+    width: 100%;
+    height: 100%;
     color: #00AA00;
+    /* background-color: #; */
 }
 
 .btn-editar:hover{
@@ -143,27 +155,70 @@ footer{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #00AA00;
+    /* background-color: #00AA00; */
 }
 
 .item-card{
     display: flex;
-    justify-content: space-around;
-    margin: 8px;
-    background-color: #29ABE2;
+    justify-content: space-between;
+    margin: 16px;
+    background-color: var(--secondary-color);
     width: 80vw;
     height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
     /* padding: 8px; */
     /* width: 100%;
     height: 100%; */
     /* border: 2px solid blue; */
 }
 
-.item-elem:hover{
-    background-color: var(--secondary-color);
-    color: var(--background-color);
+.item-card:hover{
+    background-color: var(--primary-color);
 }
 
 .item-elem{
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    width: 78vw;
+    color: var(--background-color);
+}
+
+.item-card-desc{
+    /* background-color: cadetblue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding: 0px 32px;
     width: 100%;
+}
+
+.item-card-title{
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.item-card-marca{
+    color: #dedcdb;
+}
+
+.item-card-precio{
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    font-size: 20px;
+    padding: 0px 16px;
+    /* background-color: cyan; */
+}
+
+.item-mods{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* justify-items: center; */
+    align-items: center;
+    width: 2vw;
+    /* background-color: crimson; */
 }

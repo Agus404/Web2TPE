@@ -1,5 +1,17 @@
 <div class="items-container">
     <?php foreach($productos as $producto): ?>
-        <div class="item-card"><a href="productos/<?=$producto->id_producto?>" class="item-elem"><?=$producto->nombre_producto?> <?=$producto->nombre_marca?><span class="precio">$<?=$producto->precio?></span></a><div class="item-mods"><a href="editar-producto/<?=$producto->id_producto?>" class="btn-editar"> O </a><a href="eliminar-producto/<?=$producto->id_producto?>" class="btn-eliminar"> X </a></div></div>
+        <div class="item-card">
+            <a href="productos/<?=$producto->id_producto?>" class="item-elem">
+                <div class="item-card-desc">
+                    <span class="item-card-title"><?=$producto->nombre_producto?></span> 
+                    <span class="item-card-marca"><?=$producto->nombre_marca?></span>
+                </div>
+                <span class="item-card-precio">$<?=$producto->precio?></span>
+            </a>
+            <div class="item-mods">
+                <a href="editar-producto/<?=$producto->id_producto?>" class="btn-editar"> O </a>
+                <a href="eliminar-producto/<?=$producto->id_producto?>" class="btn-eliminar"> X </a>
+            </div>
+        </div>
     <?php endforeach ?>
 </div>
