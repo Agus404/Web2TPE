@@ -4,11 +4,12 @@
 <div class="items-container">
     <?php foreach($marcas as $marca): ?>
         <div class="item-card">
-            <a href="marcas/<?=$marca->id_marca?>" class="item-elem"> <?=$marca->nombre_marca?> </a>
+            <a href="marcas/<?=$marca->id_marca?>" class="item-elem item-card-title"> <?=$marca->nombre_marca?> </a>
             <div class="item-mods">
                 <a href="editar-producto/<?=$marca->id_marca?>" class="btn-editar"> O </a>
                 <a href="eliminar-producto/<?=$marca->id_marca?>" class="btn-eliminar"> X </a>
             </div>
+        </div>
     <?php endforeach ?>
 </div>
 
