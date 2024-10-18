@@ -129,8 +129,8 @@ footer{
 }
 
 .btn-eliminar:hover{
-    font-weight: 900;
-    color: #ff7777;
+    /* font-weight: 700; */
+    color: #FF9999;
 }
 
 .btn-editar{
@@ -146,7 +146,7 @@ footer{
 }
 
 .btn-editar:hover{
-    font-weight: 900;
+    /* font-weight: 700; */
     color: #99FF99;
 }
 
