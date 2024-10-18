@@ -167,3 +167,14 @@ footer{
 .item-elem{
     width: 100%;
 }
+
+.tituloMarca{
+    display: flex;
+    justify-content: center;
+    font-weight: 900;
+}
+
+.infoMarca{
+    display: flex;
+    flex-direction: column;
+}
