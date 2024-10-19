@@ -42,17 +42,18 @@ class ProductosController{
         $precio = $_POST['precio'];
         $id_marca = $_POST['id_marca'];
 
-        if (empty($nombre_producto) || empty($peso) || empty($precio) || empty($id_marca)) {
+        $validation = $this->validateAndSanitizeFields(['nombre_producto', 'peso', 'precio']);
+        if (!$validation) {
             $this->layoutView->showError("Debe completar todos los campos");
-            return;
+        }else{
+            $id = $this->model->insertProducto($nombre_producto, $peso, $precio, $id_marca);
+            if ($id) {
+                header('Location: ' . BASE_URL . 'productos');
+            } else {
+                $this->layoutView->showError("Error al insertar el producto");
+            }
         }
 
-        $id = $this->model->insertProducto($nombre_producto, $peso, $precio, $id_marca);
-        if ($id) {
-            header('Location: ' . BASE_URL . 'productos');
-        } else {
-            $this->layoutView->showError("Error al insertar el producto");
-        }
     }
 
     function removeProducto($id){
@@ -77,12 +78,22 @@ class ProductosController{
         $precio = $_POST['precio'];
         $id_marca = $_POST['id_marca'];
 
-        if (empty($nombre_producto) || empty($peso) || empty($precio) || empty($id_marca)) {
+        $validation = $this->validateAndSanitizeFields(['nombre_producto', 'peso', 'precio']);
+        if (!$validation) {
             $this->layoutView->showError("Debe completar todos los campos");
         }else{
             $this->model->updateProducto($nombre_producto, $peso, $precio, $id_marca, $id_producto);
             header('Location: ' . BASE_URL . 'productos');
         }
+    }
+
+    function validateAndSanitizeFields($fields){
+        foreach ($fields as $field) {
+            if (!isset($_POST[$field]) || empty($_POST[$field]))
+                return false;
+            $_POST[$field] = htmlspecialchars($_POST[$field], ENT_QUOTES, 'UTF-8');
+        }
+        return true;
     }
 
     function showError($msg){
