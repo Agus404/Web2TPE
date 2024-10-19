@@ -17,7 +17,7 @@ class ProductosController{
         $this->model = new ProductosModel;
         $this->modelMarcas = new MarcasModel;
         $this->view = new ProductosView($res->usuario);
-        $this->layoutView = new LayoutView;
+        $this->layoutView = new LayoutView($res->usuario);
     }
 
     function showProductos(){
