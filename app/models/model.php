@@ -1,0 +1,153 @@
+<?php
+    class Model {
+        protected $db;
+
+        function __construct() {
+            $this->db = $this->getConnection();
+            $this->deploy();
+        }
+
+        private function getConnection() {
+            return new PDO('mysql:host='. MYSQL_HOST .';dbname='. MYSQL_DB .';charset=utf8', MYSQL_USER, MYSQL_PASS);
+        }
+
+        private function deploy() {
+            $query = $this->db->query('SHOW TABLES');
+            $tables = $query->fetchAll();
+            if(count($tables) == 0) {
+                $sql =<<<END
+                --
+                -- Base de datos: `chacinados`
+                --
+
+                -- --------------------------------------------------------
+
+                --
+                -- Estructura de tabla para la tabla `marcas`
+                --
+
+                CREATE TABLE `marcas` (
+                `id_marca` int(11) NOT NULL,
+                `nombre_marca` varchar(50) NOT NULL,
+                `contacto` varchar(50) NOT NULL,
+                `sede` varchar(50) NOT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+                --
+                -- Volcado de datos para la tabla `marcas`
+                --
+
+                INSERT INTO `marcas` (`id_marca`, `nombre_marca`, `contacto`, `sede`) VALUES
+                (1, 'Cagnoli', 'info@cagnoli.com', 'Sección Chacras 43, Tandil, Argentina.'),
+                (2, 'Las Dinas', 'dinas.salumeria@hotmail.com', 'Parque Industrial, Tandil, Argentina.'),
+                (5, 'Paladini', 'info@paladini.com', 'Carlos Tejedor 2040, Cordoba, Argentina'),
+                (6, 'Lario', '(54) 3492 438800', 'Paraná 899, Rafaela, Santa Fe, Argentina.');
+
+                -- --------------------------------------------------------
+
+                --
+                -- Estructura de tabla para la tabla `productos`
+                --
+
+                CREATE TABLE `productos` (
+                `id_producto` int(11) NOT NULL,
+                `nombre_producto` varchar(50) NOT NULL,
+                `peso` int(11) NOT NULL,
+                `precio` int(11) NOT NULL,
+                `id_marca` int(11) NOT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+                --
+                -- Volcado de datos para la tabla `productos`
+                --
+
+                INSERT INTO `productos` (`id_producto`, `nombre_producto`, `peso`, `precio`, `id_marca`) VALUES
+                (7, 'Jamon cocido horneado', 400, 99999, 5),
+                (8, 'Longaniza calabresa', 200, 4500, 2),
+                (14, 'Bondiola ahumada', 200, 7000, 2),
+                (15, 'Mortadela Bologna', 500, 7123, 6),
+                (17, 'Salamin picado fino', 300, 9500, 1),
+                (19, 'Salamin picado grueso', 150, 4800, 1);
+
+                -- --------------------------------------------------------
+
+                --
+                -- Estructura de tabla para la tabla `usuarios`
+                --
+
+                CREATE TABLE `usuarios` (
+                `id_usuario` int(11) NOT NULL,
+                `nombre_usuario` varchar(50) NOT NULL,
+                `password` char(60) NOT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+                --
+                -- Volcado de datos para la tabla `usuarios`
+                --
+
+                INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `password`) VALUES
+                (1, 'webadmin', '$2y$10$3s/7OkBzNGrgBi1KtLdYTOoaYYAqKUPwsbgh5z/fzsA5B1qAad1pu');
+
+                --
+                -- Índices para tablas volcadas
+                --
+
+                --
+                -- Indices de la tabla `marcas`
+                --
+                ALTER TABLE `marcas`
+                ADD PRIMARY KEY (`id_marca`),
+                ADD UNIQUE KEY `contacto` (`contacto`);
+
+                --
+                -- Indices de la tabla `productos`
+                --
+                ALTER TABLE `productos`
+                ADD PRIMARY KEY (`id_producto`),
+                ADD KEY `id_marca` (`id_marca`);
+
+                --
+                -- Indices de la tabla `usuarios`
+                --
+                ALTER TABLE `usuarios`
+                ADD PRIMARY KEY (`id_usuario`),
+                ADD UNIQUE KEY `nombre_usuario` (`nombre_usuario`);
+
+                --
+                -- AUTO_INCREMENT de las tablas volcadas
+                --
+
+                --
+                -- AUTO_INCREMENT de la tabla `marcas`
+                --
+                ALTER TABLE `marcas`
+                MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+                --
+                -- AUTO_INCREMENT de la tabla `productos`
+                --
+                ALTER TABLE `productos`
+                MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+                --
+                -- AUTO_INCREMENT de la tabla `usuarios`
+                --
+                ALTER TABLE `usuarios`
+                MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+                --
+                -- Restricciones para tablas volcadas
+                --
+
+                --
+                -- Filtros para la tabla `productos`
+                --
+                ALTER TABLE `productos`
+                ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_marca`) REFERENCES `marcas` (`id_marca`) ON DELETE CASCADE ON UPDATE CASCADE;
+                COMMIT;
+            END;
+            $this->db->query($sql);
+            }
+        } 
+    }
+?>
