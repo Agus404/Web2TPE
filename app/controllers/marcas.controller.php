@@ -26,11 +26,11 @@ class MarcasController{
     function showProductosByMarca($id_marca){
         $productos = $this->model->getProductosByMarca($id_marca);
         $marca = $this->model->getMarcaById($id_marca);
-        if(!empty($productos)){
+        // if(!empty($productos)){
             $this->view->showProductosByMarca($productos, $marca);
-        }else{
-            $this->layoutView->showError('Marca no encontrada');
-        }       
+        // }else{
+        //     $this->layoutView->showError('Marca sin productos');
+        // }       
     }
 
     function addMarca(){

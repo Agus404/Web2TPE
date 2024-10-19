@@ -31,6 +31,7 @@ switch ($params[0]) {
             $controllerProductos->showProductos();
         } else {
             $id = $params[1];
+            $controllerProductos = new ProductosController($res);
             $controllerProductos->showProductoById($id);
         }
         break;
@@ -42,6 +43,7 @@ switch ($params[0]) {
             $controllerMarcas->showMarcas();
         } else {
             $marca = $params[1];
+            $controllerMarcas = new MarcasController($res);
             $controllerMarcas->showProductosByMarca($marca);
         }
         break;
