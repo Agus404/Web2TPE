@@ -1,7 +1,11 @@
 <?php require 'templates/layout/header.phtml' ?>
-
-<h1><?=$producto->nombre_producto?></h1>
-<h2>$<?=$producto->precio?></h2>
-<h3>Peso: <?=$producto->peso?>g. Marca: <a href="marcas/<?=$producto->id_marca?>" ><?=$producto->nombre_marca?></a></h3>
-
+<div class="producto-container">
+    <!-- <div> -->
+        <h1><?=$producto->nombre_producto?></h1>
+        <h2>Precio: $<?=$producto->precio?></h2>
+        <h3>Peso: <?=$producto->peso?> gramos. </h3>
+        <h3>Marca: <a href="marcas/<?=$producto->id_marca?>" class="marca-producto"><?=$producto->nombre_marca?></a></h3>
+    <!-- </div> -->
+</div>
+    
 <?php require 'templates/layout/footer.phtml' ?>

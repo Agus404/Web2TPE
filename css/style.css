@@ -37,7 +37,7 @@ header{
     /* background-color: var(--background-color); */
     background-color: var(--secondary-color);
     color: var(--background-color);
-    border-bottom: 0.3vh var(--text-color) solid;
+    /* border-bottom: 0.3vh var(--text-color) solid; */
 }
 
 .title{
@@ -113,7 +113,7 @@ main{
 footer{
     background-color: var(--secondary-color);
     color: var(--background-color);
-    height: 3.8vh;
+    height: 4vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -358,4 +358,43 @@ footer{
 
 .form-editar button:hover{
     background-color: orange;
+}
+
+.producto-container{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 15vh 0;
+    font-size: 150%;
+    /* justify-content: center; */
+    /* justify-items: center; */
+    text-align: center;
+    /* padding: 48px; */
+    /* background-color: crimson; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* margin: 32px 20vw 0; */
+    /* height: 30vh; */
+    /* overflow: hidden; */
+}
+
+/* .producto-container .item-card{
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 24px;
+    padding: 48px;
+    width: 60vw;
+    height: 50vh;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border-radius: 32px;
+    box-shadow: none;
+} */
+
+.marca-producto{
+    color: var(--primary-color);
+}
+
+.marca-producto:hover{
+    color: var(--secondary-color);
 }
