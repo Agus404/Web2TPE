@@ -9,8 +9,8 @@
                 <span class="item-card-precio">$<?=$producto->precio?></span>
             </a>
             <div class="item-mods">
-                <a href="editar-producto/<?=$producto->id_producto?>" class="btn-editar"> &#128393; </a>
-                <a href="eliminar-producto/<?=$producto->id_producto?>" class="btn-eliminar"> &#128473; </a>
+            <?php if($this->user){?> <a href="editar-producto/<?=$producto->id_producto?>" class="btn-editar"> &#128393; </a>
+                <a href="eliminar-producto/<?=$producto->id_producto?>" class="btn-eliminar"> &#128473; </a> <?php }?>
             </div>
         </div>
     <?php endforeach ?>

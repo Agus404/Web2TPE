@@ -36,6 +36,7 @@ switch ($params[0]) {
         break;
 
     case 'marcas':
+        sessionAuthMiddleware($res);
         if (empty($params[1])) {
             $controllerMarcas->showMarcas();
         } else {
@@ -45,10 +46,14 @@ switch ($params[0]) {
         break;
 
     case 'agregar-producto':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         $controllerProductos->addProducto();
         break;
 
     case 'eliminar-producto':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         if (empty($params[1])) {
             $controllerProductos->showError('Error al eliminar producto');
         } else {
@@ -58,6 +63,8 @@ switch ($params[0]) {
         break;
 
     case 'editar-producto':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         if (empty($params[1])) {
             $controllerProductos->showError('Producto no encontrado');
         } else if (empty($params[2])) {
@@ -70,10 +77,14 @@ switch ($params[0]) {
         break;
 
     case 'agregar-marca':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         $controllerMarcas->addMarca();
         break;
 
     case 'eliminar-marca':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         if (empty($params[1])) {
             $controllerMarcas->showError('Error al eliminar marca');
         } else {
@@ -83,6 +94,8 @@ switch ($params[0]) {
         break;
 
     case 'editar-marca':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         if (empty($params[1])) {
             $controllerMarcas->showError('Marca no encontrada');
         } else if (empty($params[2])) {
