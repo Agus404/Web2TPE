@@ -20,7 +20,11 @@
     <ul class="nav">
         <li class="nav-elem"><a href="productos">productos</a></li>
         <li class="nav-elem"><a href="marcas">marcas</a></li>
-        <li class=""><a href="inicio-de-sesion" class="btn-login">iniciar sesión</a></li>
+        <li class=""><?php if($this->user){?>
+            <a href="cerrar-sesion" class="btn-login">cerrar sesión</a>
+        <?php }else{?>
+            <a href="inicio-de-sesion" class="btn-login">iniciar sesión</a>
+            <?php }?></li>
     </ul>
 </header>
 <main>

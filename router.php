@@ -102,6 +102,10 @@ switch ($params[0]) {
         $controllerAuth->login();
         break;
 
+    case 'cerrar-sesion':
+        $controllerAuth->logout();
+        break;
+        
     default:
         $controllerProductos->showError("Página no encontrada");
         break;
