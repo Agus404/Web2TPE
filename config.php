@@ -3,4 +3,3 @@
     const MYSQL_PASS = '';
     const MYSQL_DB = 'chacinados';
     const MYSQL_HOST = 'localhost';
-?>

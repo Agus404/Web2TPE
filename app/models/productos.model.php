@@ -1,13 +1,8 @@
 <?php
 
-class ProductosModel{
-    
-    private $db;
+require_once 'app/models/model.php';
 
-    function __construct()
-    {
-        $this->db = new PDO('mysql:host=localhost;dbname=chacinados;charset=utf8', 'root', '');
-    }
+class ProductosModel extends Model{
 
     function getAllProductos(){
         $query = $this->db->prepare('SELECT id_producto, nombre_producto, peso, precio, productos.id_marca, marcas.nombre_marca as nombre_marca FROM productos, marcas WHERE productos.id_marca=marcas.id_marca');

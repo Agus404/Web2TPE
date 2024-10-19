@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-10-2024 a las 23:46:25
+-- Tiempo de generación: 20-10-2024 a las 01:46:17
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -68,7 +68,7 @@ INSERT INTO `productos` (`id_producto`, `nombre_producto`, `peso`, `precio`, `id
 (14, 'Bondiola ahumada', 200, 7000, 2),
 (15, 'Mortadela Bologna', 500, 7123, 6),
 (17, 'Salamin picado fino', 300, 9500, 1),
-(19, 'Salamin picado grueso', 150, 4800, 1);
+(24, 'Salamin picado grueso', 150, 4999, 1);
 
 -- --------------------------------------------------------
 
@@ -122,13 +122,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

@@ -1,12 +1,8 @@
 <?php
 
-class MarcasModel{
-    private $db;
+require_once 'app/models/model.php';
 
-    function __construct()
-    {
-        $this->db = new PDO('mysql:host=localhost;dbname=chacinados;charset=utf8', 'root', '');
-    }
+class MarcasModel extends Model{
 
     function getAllMarcas(){
         $query = $this->db->prepare('SELECT * FROM marcas');
