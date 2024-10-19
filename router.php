@@ -17,7 +17,7 @@ if (!empty($_GET['action'])) {
 }
 
 $params = explode('/', $action);
-$controllerMarcas = new MarcasController;
+$controllerMarcas = new MarcasController($res);
 $controllerProductos = new ProductosController($res);
 $controllerAuth = new AuthController;
 
@@ -38,6 +38,7 @@ switch ($params[0]) {
     case 'marcas':
         sessionAuthMiddleware($res);
         if (empty($params[1])) {
+            $controllerMarcas = new MarcasController($res);
             $controllerMarcas->showMarcas();
         } else {
             $marca = $params[1];
@@ -118,7 +119,7 @@ switch ($params[0]) {
     case 'cerrar-sesion':
         $controllerAuth->logout();
         break;
-        
+
     default:
         $controllerProductos->showError("Página no encontrada");
         break;

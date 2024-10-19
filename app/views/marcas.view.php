@@ -1,6 +1,11 @@
 <?php
 
 class MarcasView{
+    private $user;
+
+    public function __construct($user) {
+        $this->user = $user;
+    }
     
     function showMarcas($marcas){
         require 'templates/lista_marcas.phtml';
