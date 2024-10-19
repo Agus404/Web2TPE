@@ -11,11 +11,11 @@ class MarcasController{
     private $model;
     private $layoutView;
 
-    function __construct()
+    function __construct($res)
     {
-        $this->view = new MarcasView;
+        $this->view = new MarcasView($res->usuario);
         $this->model = new MarcasModel;
-        $this->layoutView = new LayoutView;
+        $this->layoutView = new LayoutView($res->usuario);
     }
 
     function showMarcas(){

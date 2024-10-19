@@ -1,14 +1,16 @@
 <?php require 'templates/layout/header.phtml' ?>
-<?php require 'templates/form_insertar_marca.phtml' ?>
+<?php if($this->user) require 'templates/form_insertar_marca.phtml'; ?>
 
 <div class="items-container">
     <?php foreach($marcas as $marca): ?>
         <div class="item-card">
             <a href="marcas/<?=$marca->id_marca?>" class="item-elem item-card-title"> <?=$marca->nombre_marca?> </a>
+            <?php if($this->user){?>
             <div class="item-mods">
                 <a href="editar-marca/<?=$marca->id_marca?>" class="btn-editar"> &#128393; </a>
                 <a href="eliminar-marca/<?=$marca->id_marca?>" class="btn-eliminar"> &#128473; </a>
             </div>
+            <?php }?>
         </div>
     <?php endforeach ?>
 </div>
