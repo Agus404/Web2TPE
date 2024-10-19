@@ -37,15 +37,15 @@ class ProductosController{
     }
 
     function addProducto(){
-        $nombre_producto = $_POST['nombre_producto'];
-        $peso = $_POST['peso'];
-        $precio = $_POST['precio'];
-        $id_marca = $_POST['id_marca'];
-
+        
         $validation = $this->validateAndSanitizeFields(['nombre_producto', 'peso', 'precio']);
         if (!$validation) {
             $this->layoutView->showError("Debe completar todos los campos");
         }else{
+            $nombre_producto = $_POST['nombre_producto'];
+            $peso = $_POST['peso'];
+            $precio = $_POST['precio'];
+            $id_marca = $_POST['id_marca'];
             $id = $this->model->insertProducto($nombre_producto, $peso, $precio, $id_marca);
             if ($id) {
                 header('Location: ' . BASE_URL . 'productos');
