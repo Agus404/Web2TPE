@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2024 a las 23:58:28
+-- Tiempo de generación: 19-10-2024 a las 23:46:25
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -42,8 +42,7 @@ INSERT INTO `marcas` (`id_marca`, `nombre_marca`, `contacto`, `sede`) VALUES
 (1, 'Cagnoli', 'info@cagnoli.com', 'Sección Chacras 43, Tandil, Argentina.'),
 (2, 'Las Dinas', 'dinas.salumeria@hotmail.com', 'Parque Industrial, Tandil, Argentina.'),
 (5, 'Paladini', 'info@paladini.com', 'Carlos Tejedor 2040, Cordoba, Argentina'),
-(6, 'Lario', '(54) 3492 438800', 'Paraná 899, Rafaela, Santa Fe.'),
-(7, 'Temp', '123', 'qwe');
+(6, 'Lario', '(54) 3492 438800', 'Paraná 899, Rafaela, Santa Fe, Argentina.');
 
 -- --------------------------------------------------------
 
@@ -64,12 +63,31 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `nombre_producto`, `peso`, `precio`, `id_marca`) VALUES
-(6, 'Salamin picado grueso', 150, 4660, 1),
-(7, 'Jamon cocido horneado', 400, 9999999, 5),
+(7, 'Jamon cocido horneado', 400, 99999, 5),
 (8, 'Longaniza calabresa', 200, 4500, 2),
 (14, 'Bondiola ahumada', 200, 7000, 2),
 (15, 'Mortadela Bologna', 500, 7123, 6),
-(16, 'Salamin picado fino', 200, 6000, 7);
+(17, 'Salamin picado fino', 300, 9500, 1),
+(19, 'Salamin picado grueso', 150, 4800, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id_usuario` int(11) NOT NULL,
+  `nombre_usuario` varchar(50) NOT NULL,
+  `password` char(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `password`) VALUES
+(1, 'webadmin', '$2y$10$3s/7OkBzNGrgBi1KtLdYTOoaYYAqKUPwsbgh5z/fzsA5B1qAad1pu');
 
 --
 -- Índices para tablas volcadas
@@ -90,6 +108,13 @@ ALTER TABLE `productos`
   ADD KEY `id_marca` (`id_marca`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD UNIQUE KEY `nombre_usuario` (`nombre_usuario`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -97,13 +122,19 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas

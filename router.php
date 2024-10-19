@@ -2,8 +2,14 @@
 
 require_once "app/controllers/productos.controller.php";
 require_once "app/controllers/marcas.controller.php";
+require_once "app/controllers/auth.controller.php";
+require_once 'app/middlewares/session.auth.middleware.php';
+require_once 'app/middlewares/verify.auth.middleware.php';
+require_once "libs/response.php";
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
+
+$res = new Response();
 
 $action = 'productos';
 if (!empty($_GET['action'])) {
@@ -12,13 +18,16 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 $controllerMarcas = new MarcasController;
-$controllerProductos = new ProductosController;
+$controllerProductos = new ProductosController($res);
+$controllerAuth = new AuthController;
 
 
 switch ($params[0]) {
 
     case 'productos':
+        sessionAuthMiddleware($res);
         if (empty($params[1])) {
+            $controllerProductos = new ProductosController($res);
             $controllerProductos->showProductos();
         } else {
             $id = $params[1];
@@ -83,6 +92,14 @@ switch ($params[0]) {
             $id = $params[1];
             $controllerMarcas->updateMarca($id);
         }
+        break;
+    
+    case 'inicio-de-sesion':
+        $controllerAuth->showLogin();
+        break;
+
+    case 'iniciar-sesion':
+        $controllerAuth->login();
         break;
 
     default:

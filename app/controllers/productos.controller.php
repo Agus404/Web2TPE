@@ -12,11 +12,11 @@ class ProductosController{
     private $view;
     private $layoutView;
 
-    function __construct()
+    function __construct($res)
     {
         $this->model = new ProductosModel;
         $this->modelMarcas = new MarcasModel;
-        $this->view = new ProductosView;
+        $this->view = new ProductosView($res->usuario);
         $this->layoutView = new LayoutView;
     }
 
