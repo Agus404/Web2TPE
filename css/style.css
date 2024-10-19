@@ -34,8 +34,9 @@ header{
     /* width: 100%; */
     justify-content: space-between;
     align-items: center;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    /* background-color: var(--background-color); */
+    background-color: var(--secondary-color);
+    color: var(--background-color);
     border-bottom: 0.3vh var(--text-color) solid;
 }
 
@@ -44,6 +45,7 @@ header{
     font-family: "Great Vibes", cursive;
     font-size: 40px;
     font-weight: 600;
+    color: var(--background-color);
 }
 
 .nav{
@@ -67,7 +69,7 @@ header{
 
 .nav-elem:hover{
     /* text-decoration: underline 2px; */
-    background-color: #29ABE2;
+    background-color: var(--primary-color);
 }
 
 .nav-elem a{
@@ -76,10 +78,11 @@ header{
     cursor: pointer;
     height: 100%;
     width: 100%;
+    color: var(--background-color);
 }
 
 .btn-login{
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: var(--background-color);
     /* text-transform: uppercase; */
     font-weight: 700;
@@ -95,7 +98,8 @@ header{
     /* background-color: #29ABE2;
     color: var(--text-color); */
 
-    background-color: var(--primary-color);
+    background-color: #29ABE2;
+    color: var(--text-color);
 }
 
 main{
@@ -228,12 +232,14 @@ footer{
 
 .titulo-marca{
     display: flex;
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: var(--background-color);
     justify-content: center;
     font-weight: 700;
     text-transform: uppercase;
     padding: 12px;
+    margin-bottom: 16px;
+    box-shadow: #777 0px 2px 4px;
 }
 
 .info-marca{
@@ -241,6 +247,7 @@ footer{
     flex-direction: column;
     align-items: center;
     font-weight: 500;
+    padding: 16px;
 }
 
 .form-insertar{
@@ -289,4 +296,65 @@ footer{
 .form-insertar button:hover{
     background-color: orange;
     /* color: var(--background-color); */
+}
+
+.form-editar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    padding: 32px;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.form-editar form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    width: 60vw;
+    height: 65vh;
+    background-color: var(--primary-color);
+    border-radius: 32px;
+    box-shadow: #555 2px 4px 6px;
+}
+
+.form-editar input{
+    font-size: 18px;
+    width: 80%;
+    /* height: ; */
+    padding: 12px 8px;
+    border: none;
+    border-radius: 4px;
+    /* box-shadow: var(--secondary-color) 1px 2px 6px; */
+}
+
+.form-editar select{
+    font-size: 16px;
+    width: 81%;
+    padding: 16px 8px;
+    border: none;
+    border-radius: 4px;
+    /* box-shadow: var(--secondary-color) 1px 2px 6px; */
+}
+
+.form-editar button{
+    width: 400px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: 700;
+    background-color: darkorange;
+    color: var(--text-color);
+    text-transform: uppercase;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    /* box-shadow: #222 1px 2px 6px; */
+}
+
+.form-editar button:hover{
+    background-color: orange;
 }
