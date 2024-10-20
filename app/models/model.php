@@ -36,18 +36,19 @@ class Model{
                 `id_marca` int(11) NOT NULL,
                 `nombre_marca` varchar(50) NOT NULL,
                 `contacto` varchar(50) NOT NULL,
-                `sede` varchar(50) NOT NULL
+                `sede` varchar(50) NOT NULL,
+                `imagen_marca` varchar(50) DEFAULT NULL
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
                 --
                 -- Volcado de datos para la tabla `marcas`
                 --
 
-                INSERT INTO `marcas` (`id_marca`, `nombre_marca`, `contacto`, `sede`) VALUES
-                (1, 'Cagnoli', 'info@cagnoli.com', 'Sección Chacras 43, Tandil, Argentina.'),
-                (2, 'Las Dinas', 'dinas.salumeria@hotmail.com', 'Parque Industrial, Tandil, Argentina.'),
-                (5, 'Paladini', 'info@paladini.com', 'Carlos Tejedor 2040, Cordoba, Argentina'),
-                (6, 'Lario', '(54) 3492 438800', 'Paraná 899, Rafaela, Santa Fe, Argentina.');
+                INSERT INTO `marcas` (`id_marca`, `nombre_marca`, `contacto`, `sede`, `imagen_marca`) VALUES
+                (1, 'Cagnoli', 'info@cagnoli.com', 'Sección Chacras 43, Tandil, Argentina.', NULL),
+                (2, 'Las Dinas', 'dinas.salumeria@hotmail.com', 'Parque Industrial, Tandil, Argentina.', NULL),
+                (5, 'Paladini', 'info@paladini.com', 'Carlos Tejedor 2040, Cordoba, Argentina', NULL),
+                (6, 'Lario', '(54) 3492 438800', 'Paraná 899, Rafaela, Santa Fe, Argentina.', NULL);
 
                 -- --------------------------------------------------------
 
@@ -60,20 +61,23 @@ class Model{
                 `nombre_producto` varchar(50) NOT NULL,
                 `peso` int(11) NOT NULL,
                 `precio` int(11) NOT NULL,
-                `id_marca` int(11) NOT NULL
+                `id_marca` int(11) NOT NULL,
+                `imagen_producto` varchar(50) DEFAULT NULL
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
                 --
                 -- Volcado de datos para la tabla `productos`
                 --
 
-                INSERT INTO `productos` (`id_producto`, `nombre_producto`, `peso`, `precio`, `id_marca`) VALUES
-                (7, 'Jamon cocido horneado', 400, 99999, 5),
-                (8, 'Longaniza calabresa', 200, 4500, 2),
-                (14, 'Bondiola ahumada', 200, 7000, 2),
-                (15, 'Mortadela Bologna', 500, 7123, 6),
-                (17, 'Salamin picado fino', 300, 9500, 1),
-                (19, 'Salamin picado grueso', 150, 4800, 1);
+                INSERT INTO `productos` (`id_producto`, `nombre_producto`, `peso`, `precio`, `id_marca`, `imagen_producto`) VALUES
+                (7, 'Jamon cocido horneado', 400, 99999, 5, NULL),
+                (8, 'Longaniza calabresa', 200, 4500, 2, NULL),
+                (14, 'Bondiola ahumada', 200, 7000, 2, NULL),
+                (15, 'Mortadela Bologna', 500, 7123, 6, NULL),
+                (17, 'Salamin picado fino', 300, 9500, 1, NULL),
+                (19, 'Salamin picado grueso', 150, 4800, 1, NULL),
+                (32, 'Jamon crudo feteado', 120, 5790, 6, NULL),
+                (33, 'Salchica parrillera', 1000, 11359, 5, NULL);
 
                 -- --------------------------------------------------------
 
@@ -126,13 +130,13 @@ class Model{
                 -- AUTO_INCREMENT de la tabla `marcas`
                 --
                 ALTER TABLE `marcas`
-                MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+                MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
                 --
                 -- AUTO_INCREMENT de la tabla `productos`
                 --
                 ALTER TABLE `productos`
-                MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+                MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
                 --
                 -- AUTO_INCREMENT de la tabla `usuarios`

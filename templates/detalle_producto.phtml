@@ -1,11 +1,12 @@
 <?php require 'templates/layout/header.phtml' ?>
 <div class="producto-container">
-    <!-- <div> -->
         <h1><?=$producto->nombre_producto?></h1>
         <h2>Precio: $<?=$producto->precio?></h2>
         <h3>Peso: <?=$producto->peso?> gramos. </h3>
         <h3>Marca: <a href="marcas/<?=$producto->id_marca?>" class="marca-producto"><?=$producto->nombre_marca?></a></h3>
-    <!-- </div> -->
+        <?php if($producto->imagen_producto){?>
+            <img src="<?=$producto->imagen_producto?>" alt="Imagen de producto">
+        <?php }?>
 </div>
     
 <?php require 'templates/layout/footer.phtml' ?>

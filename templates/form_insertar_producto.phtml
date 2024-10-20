@@ -1,6 +1,6 @@
 <div class="form-insertar">
     <h1>introducir producto: </h1>
-    <form action="agregar-producto" method="POST">
+    <form action="agregar-producto" method="POST" enctype="multipart/form-data">
         <input type="text" name="nombre_producto" placeholder="Nombre de Producto" required>
         <input type="number" name="peso" placeholder="Peso (en gramos)" required>
         <input type="number" name="precio" placeholder="Precio" required>
@@ -9,6 +9,7 @@
                 <option value="<?= $marca->id_marca ?>"><?= $marca->nombre_marca ?></option>
             <?php endforeach ?>
         </select>
+        <input type="file" name="imagen_producto" accept=".png, .jpg, .jpeg">
         <button type="submit">crear</button>
     </form>
 </div>

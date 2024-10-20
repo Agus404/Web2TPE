@@ -1,9 +1,10 @@
 <div class="form-editar">
     <h1>editar marca: </h1>
-    <form action="editar-marca/<?= $marca->id_marca ?>/update" method="post">
+    <form action="editar-marca/<?= $marca->id_marca ?>/update" method="post" enctype="multipart/form-data">
         <input type="text" name="nombre_marca" value="<?= $marca->nombre_marca ?>" required>
         <input type="text" name="contacto" value="<?= $marca->contacto ?>" required>
         <input type="text" name="sede" value="<?= $marca->sede ?>" required>
+        <input type="file" name="imagen_marca" accept=".png, .jpg, .jpeg">
         <button type="submit">editar</button>
     </form>
 </div>

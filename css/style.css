@@ -20,10 +20,6 @@ a{
 body{
     background-color: var(--background-color);
     color: var(--text-color);
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* align-items: center; */
     min-height: 100vh;
 }
 
@@ -31,13 +27,10 @@ header{
     display: flex;
     padding: 0px 32px;
     height: 6vh;
-    /* width: 100%; */
     justify-content: space-between;
     align-items: center;
-    /* background-color: var(--background-color); */
     background-color: var(--secondary-color);
     color: var(--background-color);
-    /* border-bottom: 0.3vh var(--text-color) solid; */
 }
 
 .title{
@@ -57,18 +50,14 @@ header{
 
 .nav li{
     padding: 0px 16px;
-    /* margin: 0px 16px; */
 }
 
 .nav-elem{
-    /* font-size: 20px; */
     font-weight: 800;
     height: 100%;
-    /* background-color: crimson; */
 }
 
 .nav-elem:hover{
-    /* text-decoration: underline 2px; */
     background-color: var(--primary-color);
 }
 
@@ -84,30 +73,19 @@ header{
 .btn-login{
     background-color: var(--primary-color);
     color: var(--background-color);
-    /* text-transform: uppercase; */
     font-weight: 700;
-    /* border: none; */
     border-radius: 4px;
     padding: 8px 16px;
     cursor: pointer;
-    /* font-size: 20px; */
-    /* font-weight: 900; */
 }
 
 .btn-login:hover{
-    /* background-color: #29ABE2;
-    color: var(--text-color); */
-
     background-color: #29ABE2;
     color: var(--text-color);
 }
 
 main{
-    /* background-color: crimson; */
-    /* display: flex; */
-    
     min-height: 90vh;
-    /* width: 80%; */
 }
 
 footer{
@@ -124,16 +102,13 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* font-weight: 600; */
     font-size: 28px;
     width: 100%;
     height: 100%;
     color: #FF0000;
-    /* background-color: #; */
 }
 
 .btn-eliminar:hover{
-    /* font-weight: 700; */
     color: #FF9999;
 }
 
@@ -146,12 +121,9 @@ footer{
     width: 100%;
     height: 100%;
     color: #ffd60a;
-    /* color: #00AA00; */
-    /* background-color: #; */
 }
 
 .btn-editar:hover{
-    /* font-weight: 700; */
     color: #fff5b6;
 }
 
@@ -160,7 +132,6 @@ footer{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: #00AA00; */
 }
 
 .item-card{
@@ -173,10 +144,6 @@ footer{
     border-radius: 8px;
     overflow: hidden;
     box-shadow: #777 2px 4px 5px;
-    /* padding: 8px; */
-    /* width: 100%;
-    height: 100%; */
-    /* border: 2px solid blue; */
 }
 
 .item-card:hover{
@@ -194,7 +161,6 @@ footer{
 }
 
 .item-card-desc{
-    /* background-color: cadetblue; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -216,19 +182,14 @@ footer{
     align-items: center;
     font-weight: 800;
     font-size: 22px;
-    /* color: orange; */
-    /* padding: 0px -16px; */
-    /* background-color: cyan; */
 }
 
 .item-mods{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* justify-items: center; */
     align-items: center;
     width: 3vw;
-    /* background-color: crimson; */
 }
 
 .titulo-marca{
@@ -257,7 +218,11 @@ footer{
     text-transform: uppercase;
     background-color: var(--primary-color);
     color: var(--background-color);
-    padding: 8px 10vw;
+    padding: 8px 48px 8px 10vw;
+}
+
+.form-insertar h1{
+    font-size: 28px;
 }
 
 .form-insertar form{
@@ -266,7 +231,7 @@ footer{
 }
 
 .form-insertar input{
-    width: 200px;
+    width: 150px;
     padding: 0px 8px;
     border: none;
     border-radius: 4px;
@@ -274,6 +239,22 @@ footer{
 
 .form-insertar input[type="number"]{
     width: 130px;
+}
+
+.form-insertar input[type="file"]{
+    width: 250px;
+    padding: 0;
+}
+
+.form-insertar input[type="file"]::file-selector-button{
+    height: 100%;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--background-color);
+}
+
+.form-insertar .input-file:hover{
+    background-color: #ccc;
 }
 
 .form-insertar select{
@@ -284,8 +265,6 @@ footer{
     width: 100px;
     background-color: var(--background-color);
     background-color: darkorange;
-    /* color: var(--background-color); */
-    /* border: 2px solid var(--secondary-color); */
     font-weight: 700;
     border: none;
     border-radius: 8px;
@@ -296,7 +275,6 @@ footer{
 
 .form-insertar button:hover{
     background-color: orange;
-    /* color: var(--background-color); */
 }
 
 .form-editar{
@@ -326,11 +304,9 @@ footer{
 .form-editar input{
     font-size: 18px;
     width: 80%;
-    /* height: ; */
     padding: 12px 8px;
     border: none;
     border-radius: 4px;
-    /* box-shadow: var(--secondary-color) 1px 2px 6px; */
 }
 
 .form-editar select{
@@ -339,7 +315,6 @@ footer{
     padding: 16px 8px;
     border: none;
     border-radius: 4px;
-    /* box-shadow: var(--secondary-color) 1px 2px 6px; */
 }
 
 .form-editar button{
@@ -353,7 +328,6 @@ footer{
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    /* box-shadow: #222 1px 2px 6px; */
 }
 
 .form-editar button:hover{
@@ -366,30 +340,8 @@ footer{
     gap: 32px;
     padding: 15vh 0;
     font-size: 150%;
-    /* justify-content: center; */
-    /* justify-items: center; */
     text-align: center;
-    /* padding: 48px; */
-    /* background-color: crimson; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* margin: 32px 20vw 0; */
-    /* height: 30vh; */
-    /* overflow: hidden; */
 }
-
-/* .producto-container .item-card{
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 24px;
-    padding: 48px;
-    width: 60vw;
-    height: 50vh;
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    border-radius: 32px;
-    box-shadow: none;
-} */
 
 .marca-producto{
     color: var(--primary-color);

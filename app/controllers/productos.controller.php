@@ -28,7 +28,6 @@ class ProductosController{
 
     function showProductoById($id){
         $producto = $this->model->getProductoById($id);
-        // $marca = $this->model->getMarcaById($producto->id_marca);
         if(!empty($producto)){
             $this->view->showProducto($producto);
         }else{
@@ -46,7 +45,13 @@ class ProductosController{
             $peso = $_POST['peso'];
             $precio = $_POST['precio'];
             $id_marca = $_POST['id_marca'];
-            $id = $this->model->insertProducto($nombre_producto, $peso, $precio, $id_marca);
+            $imagen_producto = $_FILES['imagen_producto'];
+
+            if($imagen_producto['name'] && ($imagen_producto['type'] == "image/jpg" || $imagen_producto['type'] == "image/jpeg" || $imagen_producto['type'] == "image/png")) 
+                $id = $this->model->insertProducto($nombre_producto, $peso, $precio, $id_marca, $imagen_producto);
+            else
+                $id = $this->model->insertProducto($nombre_producto, $peso, $precio, $id_marca);
+
             if ($id) {
                 header('Location: ' . BASE_URL . 'productos');
             } else {
@@ -73,16 +78,21 @@ class ProductosController{
     }
 
     function updateProducto($id_producto){
-        $nombre_producto = $_POST['nombre_producto'];
-        $peso = $_POST['peso'];
-        $precio = $_POST['precio'];
-        $id_marca = $_POST['id_marca'];
-
+        
         $validation = $this->validateAndSanitizeFields(['nombre_producto', 'peso', 'precio']);
         if (!$validation) {
             $this->layoutView->showError("Debe completar todos los campos");
         }else{
-            $this->model->updateProducto($nombre_producto, $peso, $precio, $id_marca, $id_producto);
+            $nombre_producto = $_POST['nombre_producto'];
+            $peso = $_POST['peso'];
+            $precio = $_POST['precio'];
+            $id_marca = $_POST['id_marca'];
+            $imagen_producto = $_FILES['imagen_producto'];
+
+            if($imagen_producto['name'] && ($imagen_producto['type'] == "image/jpg" || $imagen_producto['type'] == "image/jpeg" || $imagen_producto['type'] == "image/png")) 
+                $this->model->updateProducto($nombre_producto, $peso, $precio, $id_marca, $id_producto, $imagen_producto);
+            else
+                $this->model->updateProducto($nombre_producto, $peso, $precio, $id_marca, $id_producto);
             header('Location: ' . BASE_URL . 'productos');
         }
     }

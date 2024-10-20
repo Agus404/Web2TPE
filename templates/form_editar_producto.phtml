@@ -1,6 +1,6 @@
 <div class="form-editar">
     <h1>editar producto: </h1>
-    <form action="editar-producto/<?= $producto->id_producto ?>/update" method="post">
+    <form action="editar-producto/<?= $producto->id_producto ?>/update" method="post" enctype="multipart/form-data">
         <input type="text" name="nombre_producto" value="<?= $producto->nombre_producto ?>" required>
         <input type="number" name="peso" value="<?= $producto->peso ?>" required>
         <input type="number" name="precio" value="<?= $producto->precio ?>" required>
@@ -11,6 +11,7 @@
                 </option>
             <?php endforeach ?>
         </select>
+        <input type="file" name="imagen_producto" accept=".png, .jpg, .jpeg">
         <button type="submit">editar</button>
     </form>
 </div>

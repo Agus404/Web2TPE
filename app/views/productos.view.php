@@ -24,8 +24,4 @@ class ProductosView{
         require 'templates/form_editar_producto.phtml';
         require 'templates/layout/footer.phtml';
     }
-
-    // function getMarcaById($id){
-    //     return $this->controller->getMarcaById;
-    // }
 }

@@ -29,11 +29,7 @@ class MarcasController
     {
         $productos = $this->model->getProductosByMarca($id_marca);
         $marca = $this->model->getMarcaById($id_marca);
-        // if(!empty($productos)){
         $this->view->showProductosByMarca($productos, $marca);
-        // }else{
-        //     $this->layoutView->showError('Marca sin productos');
-        // }       
     }
 
     function addMarca()
@@ -45,8 +41,14 @@ class MarcasController
             $nombre_marca = $_POST['nombre_marca'];
             $contacto = $_POST['contacto'];
             $sede = $_POST['sede'];
-            $id = $this->model->insertMarca($nombre_marca, $contacto, $sede);
-            if ($id) {
+            $imagen_marca = $_FILES['imagen_marca'];
+
+            if($imagen_marca['name'] && ($imagen_marca['type'] == "image/jpg" || $imagen_marca['type'] == "image/jpeg" || $imagen_marca['type'] == "image/png"))
+                $id = $this->model->insertMarca($nombre_marca, $contacto, $sede, $imagen_marca);
+            else
+                $id = $this->model->insertMarca($nombre_marca, $contacto, $sede);
+            
+                if ($id) {
                 header('Location: ' . BASE_URL . 'marcas');
             } else {
                 $this->layoutView->showError("Error al insertar la marca");
@@ -73,14 +75,21 @@ class MarcasController
 
     function updateMarca($id)
     {
-        $nombre_marca = $_POST['nombre_marca'];
-        $contacto = $_POST['contacto'];
-        $sede = $_POST['sede'];
-
-        if (empty($nombre_marca) || empty($contacto) || empty($sede)) {
+        $validation = $this->validateAndSanitizeFields(['nombre_marca', 'contacto', 'sede']);
+        if (!$validation) {
             $this->layoutView->showError("Debe completar todos los campos");
         } else {
-            $this->model->updateMarca($nombre_marca, $contacto, $sede, $id);
+            $nombre_marca = $_POST['nombre_marca'];
+            $contacto = $_POST['contacto'];
+            $sede = $_POST['sede'];
+            $imagen_marca = $_FILES['imagen_marca'];
+            
+            if($imagen_marca['name'] && ($imagen_marca['type'] == "image/jpg" || $imagen_marca['type'] == "image/jpeg" || $imagen_marca['type'] == "image/png"))
+                $this->model->updateMarca($nombre_marca, $contacto, $sede, $id, $imagen_marca);
+            else
+                $this->model->updateMarca($nombre_marca, $contacto, $sede, $id);
+
+
             header('Location: ' . BASE_URL . 'marcas');
         }
     }

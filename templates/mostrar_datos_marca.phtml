@@ -1,4 +1,7 @@
 <div class="info-marca">
+   <?php if($marca->imagen_marca){?>
+      <img src="<?=$marca->imagen_marca?>" alt="Imagen de marca">
+   <?php }?>
    <span>Sede: <?=$marca->sede?></span>
    <span>Contacto: <?=$marca->contacto?></span>
 </div>
