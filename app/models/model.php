@@ -4,8 +4,17 @@ class Model{
     protected $db;
 
     public function __construct(){
-        $this->db = new PDO('mysql:host='. MYSQL_HOST .';dbname='. MYSQL_DB .';charset=utf8', MYSQL_USER, MYSQL_PASS);
-        $this->deploy();
+        $this->db = new PDO("mysql:host=" . MYSQL_HOST . ";charset=utf8", MYSQL_USER, MYSQL_PASS);
+        if ($this->db) {
+            $this->createDatabase();
+            $this->db->exec("USE " . MYSQL_DB);
+            $this->deploy();
+        }
+    }
+
+    function createDatabase() {
+        $query = "CREATE DATABASE IF NOT EXISTS " . MYSQL_DB . " DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci";
+        $this->db->exec($query);
     }
 
     private function deploy(){
