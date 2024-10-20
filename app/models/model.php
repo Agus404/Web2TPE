@@ -102,8 +102,7 @@ class Model{
                 -- Indices de la tabla `marcas`
                 --
                 ALTER TABLE `marcas`
-                ADD PRIMARY KEY (`id_marca`),
-                ADD UNIQUE KEY `contacto` (`contacto`);
+                ADD PRIMARY KEY (`id_marca`);
 
                 --
                 -- Indices de la tabla `productos`
